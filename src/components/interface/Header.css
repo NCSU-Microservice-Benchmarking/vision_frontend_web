@@ -1,0 +1,224 @@
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 10;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: whitesmoke;
+}
+
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 1px;
+  padding-left: calc(10px + 1vw);
+}
+
+.banner-text h1 {
+  color: black;
+  font-weight: lighter;
+  font-family: 'Univers';
+  margin: 0 0 0 10px;
+  font-size: calc(20px + 0.3vw);
+}
+
+
+
+
+
+
+
+.navbar {
+  position: relative;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  padding-right: calc(10px + 1vw);
+}
+
+.menuoptions {
+  border: none;
+  padding: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: space-between;
+}
+
+.navlink {
+  background-color: inherit; 
+  outline: none;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+  margin: auto;
+  padding: 5px;
+  text-decoration: none;
+  font-family: 'Univers';
+  font-size: calc(15px);
+  color: black;
+  outline: none !important; box-shadow: none !important;
+}
+
+.navlink::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+}
+.navlink:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+.navlink:hover {
+  cursor: pointer;
+}
+.navlink.active {
+  color:  black;
+}
+
+
+#search-container {
+  height: inherit;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  right: 20px;
+  text-decoration: none;
+  padding: 2px 5px 0 5px; 
+}
+
+
+/*Soundbtn*/
+.sound-dropdown {
+  float: left;
+  overflow: hidden;
+  background-color: inherit;
+}
+
+.sound-dropbtn {
+  font-size: 15px;  
+  border: none;
+  color: white;
+  background-color: inherit;
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+  margin: auto;
+  text-decoration: none;
+  border: none;
+  padding: 0px;
+  font-family: 'Univers';
+  font-size: 15px;
+  height: 100%;
+  outline: none;
+  outline: none !important; box-shadow: none !important;
+}
+
+.sound-dropdown:hover .sound-dropbtn {
+  cursor: pointer;
+}
+
+.sound-dropbtn.active {
+  color: #43CAEE;
+}
+
+.sound-dropdown-content {
+  display: none;
+  outline: none;
+  position: fixed;
+  background-color: white;
+  margin-left: -5px;
+  min-width: 125px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10000;
+}
+
+.sound-dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  opacity: 1;
+}
+
+.sound-dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.sound-dropdown:hover .sound-dropdown-content {
+  display: block;
+}
+
+.caret {
+  opacity: 0.5;
+  color: white;
+}
+
+.sound-dropbtn:hover .caret{
+  color: red;
+  opacity: 1; 
+}
+
+.menu-gap-fill{
+  height: 10px;
+  background-color: black;
+  border: none;
+  outline: none;
+}
+
+
+/*Effects*/
+.show-header {
+  -webkit-animation-name: showheader;
+  -webkit-animation-duration: 0.5s;
+  animation-name: showheader;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes showheader {
+  from {top:-300px; opacity:0; background-color: gray;} 
+  to {top:0; opacity:1; background-color: whitesmoke;}
+}
+@keyframes showheader {
+  from {top:-300px; opacity:0; background-color: gray; border: 1px solid black;} 
+  to {top:0; opacity:1; background-color: whitesmoke; border: none;}
+}
+
+.hide-header {
+  -webkit-animation-name: hideheader;
+  -webkit-animation-duration: 0.7s;
+  animation-name: hideheader;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes hideheader {
+  from {top:0; opacity:1; background-color: whitesmoke; border: none}
+  to {top:-300px; opacity:0; background-color: gray; border: 1px solid black;} 
+}
+@keyframes hideheader {
+  from {top:0; opacity:1; background-color: whitesmoke; border: none}
+  to {top:-300px; opacity:0; background-color: gray; border: 1px solid black;} 
+}
+
