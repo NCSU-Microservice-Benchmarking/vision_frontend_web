@@ -38,7 +38,7 @@ const Footer = () => {
           <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faFacebook} size="2x" className="fa fa-facebook"/> 
           </a>
-          <a href="https://www.instagram.com/kagwave" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faInstagram} size="2x"  className="fa fa-instagram"/> 
           </a>
         </div>

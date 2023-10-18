@@ -10,16 +10,19 @@ import { faChevronRight, faGear, faImage } from '@fortawesome/free-solid-svg-ico
 
 import tasks from '../../../data/tasks';
 import { resetModel, setModel, setTask } from '../../../redux/slices/settings';
-import { setOriginals } from '../../../redux/slices/images';
+import { setOriginals, setResults } from '../../../redux/slices/images';
+import axios from 'axios';
+
+import handleImg from '../../../utils/image';
 
 
 const Landing = () => {
 
   const dispatch = useDispatch();
-  const { originals } = useSelector((state: RootState) => state.images);
+  const { originals, results } = useSelector((state: RootState) => state.images);
   const { task, model } = useSelector((state: RootState) => state.settings);
 
-  const [currentImage, setCurrentImage] = useState<image>();
+  const [currentImage, setCurrentImage] = useState<any>();
   
   useEffect(() => {
     MountDisplay(undefined, undefined);
@@ -30,8 +33,9 @@ const Landing = () => {
   }, [task]);
 
   useEffect(() => {
-    if (originals) setCurrentImage(originals[0]);
-  }, [originals]);
+    if (currentImage) testApp();
+  }, [currentImage]);
+
 
   const changeTask = (task: string) => {
     dispatch(setTask(task));
@@ -47,19 +51,40 @@ const Landing = () => {
 
     if (files[0]) {
       for (let i = 0; i < files.length; i++) {
-        const blobUrl = URL.createObjectURL(files[i]);
         let image: image = {
           id: 'id', 
           name: files[i].name,
           type: files[i].type,
-          url: blobUrl
+          url: handleImg.createBlob(files[i], 'file', true)!
         }
         dispatch(setOriginals(image))
       }
     }
-
     setCurrentImage(files[0]);
   };
+
+  const testApp = async () => {
+    const formData = new FormData();
+    formData.append('image', currentImage);
+    formData.append('mask', currentImage); 
+    
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: 'http://155.138.202.64:8008/vision/model-pix2pix2',
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        }
+      });
+      
+      dispatch(setResults(response.data));
+      console.log(typeof response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 
   return ( 
@@ -68,6 +93,7 @@ const Landing = () => {
       <div className="home-pg">
           
           {currentImage && originals ?
+            <>
             <div className="images-display">
               <div>
                 {originals.map((img) => {
@@ -81,6 +107,14 @@ const Landing = () => {
                 <img src={currentImage!.url} height={400} />
               </div>
             </div>
+
+            {results &&
+              <div className='results-display'>
+                Results
+                <img src={handleImg.createBlob(results, 'binary', true)} height={400} />
+              </div>
+            }
+            </>
           :
             <div className="image-input-container">
               <input type="file" name="file" accept="image/*" id="image-input" multiple onChange={handleFileSelect}/>

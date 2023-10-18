@@ -77,8 +77,8 @@ const Navbar = ()  => {
           </NavLink>
           <div className="sound-dropdown-content fade-in-quick" style={{marginTop: 5}}>
             <div className="menu-gap-fill"></div>
-            <NavLink className="navlink" to="/"> Tab 1</NavLink>
-            <NavLink className="navlink" to="/">👑  Tab 2</NavLink>
+            <NavLink className="navlink" to="/">Tab 1</NavLink>
+            <NavLink className="navlink" to="/">Tab 2</NavLink>
           </div>
         </div>
 

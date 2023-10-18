@@ -18,6 +18,10 @@ export const imagesSlice = createSlice({
   name: 'images',
   initialState,
   reducers: {
+    setCurrent: (state, action) => {
+      state.edited = action.payload;
+      return state;
+    },
     setOriginals: (state, action) => {
       let current = state.originals;
       if (current) {
@@ -38,6 +42,6 @@ export const imagesSlice = createSlice({
   },
 })
 
-export const { setOriginals, setEdited, setResults } = imagesSlice.actions
+export const { setOriginals, setEdited, setResults, setCurrent } = imagesSlice.actions
 
 export default imagesSlice.reducer;

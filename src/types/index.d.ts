@@ -27,4 +27,5 @@ interface image {
   type: string,
   name: string,
   url: string,
+  file?: File
 }
