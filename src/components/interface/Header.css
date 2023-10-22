@@ -7,7 +7,7 @@
   align-items: center;
   width: 100%;
   height: 70px;
-  background-color: whitesmoke;
+  background-color: black;
 }
 
 .banner-container {
@@ -20,11 +20,11 @@
 }
 
 .banner-text h1 {
-  color: black;
+  color: white;
   font-weight: lighter;
   font-family: 'Univers';
   margin: 0 0 0 10px;
-  font-size: calc(20px + 0.3vw);
+  font-size: calc(15px + 0.4vw);
 }
 
 
@@ -38,6 +38,7 @@
   height: 50px;
   display: flex;
   justify-content: center;
+  margin: auto 25px auto auto;
   padding-right: calc(10px + 1vw);
 }
 
@@ -58,12 +59,12 @@
   text-align: center;
   align-items: center;
   vertical-align: middle;
-  margin: auto;
+  margin: auto 10px auto auto;
   padding: 5px;
   text-decoration: none;
   font-family: 'Univers';
-  font-size: calc(15px);
-  color: black;
+  font-size: calc(15px + 0.1vw);
+  color: white;
   outline: none !important; box-shadow: none !important;
 }
 
@@ -74,7 +75,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: black;
+  background-color: #CC0000;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
@@ -88,105 +89,9 @@
   cursor: pointer;
 }
 .navlink.active {
-  color:  black;
+  color:  #CC0000;
 }
 
-
-#search-container {
-  height: inherit;
-  position: absolute;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-  right: 20px;
-  text-decoration: none;
-  padding: 2px 5px 0 5px; 
-}
-
-
-/*Soundbtn*/
-.sound-dropdown {
-  float: left;
-  overflow: hidden;
-  background-color: inherit;
-}
-
-.sound-dropbtn {
-  font-size: 15px;  
-  border: none;
-  color: white;
-  background-color: inherit;
-  position: relative;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  vertical-align: middle;
-  margin: auto;
-  text-decoration: none;
-  border: none;
-  padding: 0px;
-  font-family: 'Univers';
-  font-size: 15px;
-  height: 100%;
-  outline: none;
-  outline: none !important; box-shadow: none !important;
-}
-
-.sound-dropdown:hover .sound-dropbtn {
-  cursor: pointer;
-}
-
-.sound-dropbtn.active {
-  color: #43CAEE;
-}
-
-.sound-dropdown-content {
-  display: none;
-  outline: none;
-  position: fixed;
-  background-color: white;
-  margin-left: -5px;
-  min-width: 125px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 10000;
-}
-
-.sound-dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  opacity: 1;
-}
-
-.sound-dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.sound-dropdown:hover .sound-dropdown-content {
-  display: block;
-}
-
-.caret {
-  opacity: 0.5;
-  color: white;
-}
-
-.sound-dropbtn:hover .caret{
-  color: red;
-  opacity: 1; 
-}
-
-.menu-gap-fill{
-  height: 10px;
-  background-color: black;
-  border: none;
-  outline: none;
-}
 
 
 /*Effects*/
@@ -199,11 +104,11 @@
 }
 @-webkit-keyframes showheader {
   from {top:-300px; opacity:0; background-color: gray;} 
-  to {top:0; opacity:1; background-color: whitesmoke;}
+  to {top:0; opacity:1; background-color: black;}
 }
 @keyframes showheader {
   from {top:-300px; opacity:0; background-color: gray; border: 1px solid black;} 
-  to {top:0; opacity:1; background-color: whitesmoke; border: none;}
+  to {top:0; opacity:1; background-color: black; border: none;}
 }
 
 .hide-header {
@@ -214,11 +119,11 @@
   animation-fill-mode: forwards;
 }
 @-webkit-keyframes hideheader {
-  from {top:0; opacity:1; background-color: whitesmoke; border: none}
+  from {top:0; opacity:1; background-color: black; border: none}
   to {top:-300px; opacity:0; background-color: gray; border: 1px solid black;} 
 }
 @keyframes hideheader {
-  from {top:0; opacity:1; background-color: whitesmoke; border: none}
+  from {top:0; opacity:1; background-color: black; border: none}
   to {top:-300px; opacity:0; background-color: gray; border: 1px solid black;} 
 }
 

@@ -67,23 +67,10 @@ const Navbar = ()  => {
     <nav className="navbar">
 
       <div className="menuoptions">
-        
-        <div className="sound-dropdown navlink">
-          <NavLink to="/" className="sound-dropbtn"
-            //onClick={() => {navigate('/sound')}}
-          >Home
-          <span className="freespace"></span>
-          <FontAwesomeIcon className="caret" icon={faCaretDown} size="xs"/>
-          </NavLink>
-          <div className="sound-dropdown-content fade-in-quick" style={{marginTop: 5}}>
-            <div className="menu-gap-fill"></div>
-            <NavLink className="navlink" to="/">Tab 1</NavLink>
-            <NavLink className="navlink" to="/">Tab 2</NavLink>
-          </div>
-        </div>
 
-        <NavLink className="navlink" to="/">Docs</NavLink>
-        <NavLink className="navlink" to="/">About</NavLink>
+        <NavLink className="navlink" to="/">Home</NavLink>
+        <NavLink className="navlink" to="/docs">Docs</NavLink>
+        <NavLink className="navlink" to="/about">About</NavLink>
 
       </div>
     </nav>

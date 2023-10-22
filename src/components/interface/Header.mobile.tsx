@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import logo from '../../media/images/logo.png'
 
 import MountDisplay from './tools/MountDisplay';
 
@@ -15,20 +16,17 @@ const HeaderMobile = (props: any) => {
 
   var navmenu = document.getElementById("nav-menu-mobile");
   var navbtn = document.querySelector(".nav-dropbtn-mobile");
-  var header = document.querySelector(".header-bar-mobile");
-  var footer = document.getElementById("footer-container");
+  var footer = document.getElementById("footer");
 
   useEffect(() => {
     MountDisplay(true, undefined);
-  }, [props]);
+  }, []);
 
 
   const openMenu = () => {
     var body = document.getElementById("page-content");
     navbtn!.classList.remove('menu-closed');
     navbtn!.classList.add('menu-open');
-    header!.classList.remove('nonactive-header');
-    header!.classList.add('active-header');
     navmenu!.classList.remove("slide-out-menu");
     navmenu!.classList.add("slide-in-menu");
     navmenu!.classList.remove('hide-element');
@@ -44,8 +42,6 @@ const HeaderMobile = (props: any) => {
     var body = document.getElementById("page-content");
     navbtn!.classList.remove('menu-open');
     navbtn!.classList.add('menu-closed');
-    header!.classList.remove('active-header');
-    header!.classList.add('nonactive-header');
     navmenu!.classList.remove("slide-in-menu");
     navmenu!.classList.add("slide-out-menu");
     setTimeout(function(){
@@ -60,7 +56,7 @@ const HeaderMobile = (props: any) => {
   }
 
   const showNavigation = () => {
-    if (isMenuOpen === false){
+    if (!isMenuOpen){
       openMenu();
     } else {
       closeMenu();
@@ -73,9 +69,12 @@ const HeaderMobile = (props: any) => {
     <div className="header-bar-mobile">
 
       <div className="logo-mobile" 
-      
         onClick={() => {navigate('/'); closeMenu()}}
-      ></div>
+      >
+        <img src={logo} height={"70%"}/>
+        <div className="banner-text">
+        </div>
+      </div>
 
       <button className="nav-dropbtn-mobile menu-closed"
         onClick={showNavigation}
@@ -86,9 +85,10 @@ const HeaderMobile = (props: any) => {
         <div id="small-seperator" style={{width: "100%", padding: "0"}}></div>
 
         <div className="menu-options-mobile">
-          <ul style={{listStyleType: "none", padding: "0 0 0 2vh", marginTop: '10px', textAlign: "center"}}>
+          <ul style={{listStyleType: "none", padding: "0 0 0 2vh", marginTop: '20px', textAlign: "center"}}>
             <li><NavLink className="navlink-mobile" onClick={closeMenu} to="/" >Home</NavLink></li>
-            <li><NavLink className="navlink-mobile" onClick={closeMenu} to="/contact">Contact</NavLink></li>
+            <li><NavLink className="navlink-mobile" onClick={closeMenu} to="/docs">Docs</NavLink></li>
+            <li><NavLink className="navlink-mobile" onClick={closeMenu} to="/about">About</NavLink></li>
           </ul>
         </div>
 

@@ -7,13 +7,9 @@ const PageNotFound = () => {
   return (  
     <div id="page-content">
       <div className="not-found">
-        <h1 style={{margin: '20px', fontFamily: "Neo", color: 'white'}}>
-          This page doesn't exist?
-        </h1>
-        <h2 style={{margin: '5px', fontFamily: "Vezla", fontSize: '15px', color: 'gray'}}>
-          404 Error: The requested /url destination cannot be found.
-        </h2>
-        <button style={{color: 'white', margin: '8px'}}
+        <h1>This page doesn't exist?</h1>
+        <h2>404 Error: The requested /url destination cannot be found.</h2>
+        <button
           onClick={() => navigate('/')}>
           Go Home
         </button>

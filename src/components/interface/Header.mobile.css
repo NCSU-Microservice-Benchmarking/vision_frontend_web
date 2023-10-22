@@ -3,23 +3,34 @@
   flex-direction: row;
   justify-content: center;
   position: fixed;
-  z-index: 5;
+  z-index: 7;
   align-items: center;
   top: 0;
   left: 0;
   width: 100%;
   background-color: black;
-  height: 7vh;
+  height: 70px;
   opacity: 1;
 }
 
 .logo-mobile { 
   border: none;
   display: flex;
-  width: 3vh; 
-  height: 3vh;
+  height: 100%;
   border-radius: 50%;
   position: absolute;
+  align-items: center;
+  left: 15px;
+  z-index: 3;
+}
+
+.logo-mobile h1 { 
+  border: none;
+  display: flex;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  align-items: center;
   left: 15px;
   z-index: 3;
 }
@@ -40,6 +51,8 @@
   box-shadow: none !important;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  z-index: 7;
 }
 
 .menu-closed {
@@ -54,12 +67,12 @@
 
 #nav-menu-mobile {
   position: fixed;
-  z-index: 3;
+  z-index: 2;
   background: rgb(69, 69, 69);;
-  height: 93vh;
-  right: 0px;
-  min-width: 200px;
-  top: 7vh;
+  height: fit-content;
+  width: 100%;
+  top: 70px;
+  min-height: 200px;
 }
 
 .menu-options-mobile{
@@ -69,7 +82,7 @@
 
 .menu-options-mobile li{
   width: 100%;
-  margin: auto; 
+  margin: 0;
   text-align: center;
 }
 
@@ -80,15 +93,23 @@
   outline: none;
   position: relative;
   text-align: center;
-  margin: auto;
+  margin: 0 0 10px 0;
   padding: 4px;
   text-decoration: none;
-  font-family: 'Abrade';
+  font-family: 'Univers';
   font-size: calc(16px + 0.5vw); 
 }
 
+.navlink-mobile::before {
+  content: ">";
+  margin-right: 10px;
+}
+
+.navlink-mobile::after {
+  content: "";
+}
+
 .navlink-mobile:hover {
-  cursor: pointer;
   color: red;
 }
 
@@ -97,96 +118,6 @@
 }
 
 
-  
-.search-bar-mobile {
-  width: 100%;
-  margin: 5px 0 13px 0;
-  height: 4vh;
-  display: flex;
-  justify-content: center;
-}
-
-input[type=search] {
-  width: 85%;
-  height: 4vh;
-  background-color: transparent;
-  border-radius: 20px;
-  box-shadow: none;
-  outline: none;
-  color: white;
-  text-indent: 10px;
-}
-::-ms-clear {
-  display: none;
-}
-
-/* Chrome */
-::-webkit-search-decoration,
-::-webkit-search-cancel-button,
-::-webkit-search-results-button,
-::-webkit-search-results-decoration { 
-  display: none; 
-}
-::-webkit-input-placeholder { 
-  color: #666; 
-  padding-left: 2px;
-  
-}
-
-
-.user-panel-mobile-container {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  
-}
-
-.user-panel-mobile {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
-.user-panel-mobile h1 {
-  font-family: 'Questrial';
-  font-size: 14px;
-}
-
-
-
-.bottom-panel-mobile {
-  position: absolute;
-  display: flex;
-  bottom: 1vh;
-  min-width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.user-info {
-  width: inherit;
-  justify-content: center;
-}
-
-
-.logInOut-btn-mobile {
-  color: white;
-  font-size: 13px;
-  float: right;
-  font-family: 'Expansiva';
-  border: none;
-  background-color: transparent;
-}
-  
-  
-  
-  
-  
   
   
   
@@ -203,13 +134,13 @@ input[type=search] {
 }
 
 @-webkit-keyframes slideinmenu {
-  from { right:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
-  to { right:0; opacity:1; background-color: rgb(13, 13, 13)}
+  from { top:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
+  to { top: 70px; opacity:1; background-color: rgb(13, 13, 13)}
 }
 
 @keyframes slideinmenu { 
-  from{ right:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
-  to{ right: 0; opacity:1; background-color: rgb(13, 13, 13) }
+  from{ top:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
+  to{ top: 70px; opacity:1; background-color: rgb(13, 13, 13) }
 }
 
 .slide-out-menu {
@@ -222,47 +153,11 @@ input[type=search] {
 }
 
 @-webkit-keyframes slideoutmenu {
-  from { right:0px; opacity:1; background-color: rgb(13, 13, 13) } 
-  to { right:-200px; opacity:0; background-color: rgb(69, 69, 69); }
+  from { top:70px; opacity:1; background-color: rgb(13, 13, 13) } 
+  to { top:-200px; opacity:0; background-color: rgb(69, 69, 69); }
 }
 
 @keyframes slideoutmenu { 
-  from{ right:0; opacity:1; background-color: rgb(13, 13, 13)} 
-  to{ right:-200px; opacity:0; background-color: rgb(69, 69, 69) }
-}
-
-.active-header {
-  -webkit-animation-name: activecolor;
-  -webkit-animation-duration: 0.4s;
-  animation-name: activecolor;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes activecolor {
-  from { background-color: rgb(69, 69, 69) } 
-  to { background-color: rgb(13, 13, 13) }
-}
-
-@keyframes activecolor { 
-  from { background-color: rgb(69, 69, 69) } 
-  to { background-color: rgb(13, 13, 13) }
-}
-
-.nonactive-header {
-  -webkit-animation-name: nonactivecolor;
-  -webkit-animation-duration: 0.4s;
-  animation-name: nonactivecolor;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes nonactivecolor {
-  from { background-color: rgb(13, 13, 13) } 
-  to { background-color: rgb(69, 69, 69) }
-}
-
-@keyframes nonactivecolor { 
-  from { background-color: rgb(13, 13, 13) } 
-  to { background-color: rgb(69, 69, 69) }
+  from{ top:70px; opacity:1; background-color: rgb(13, 13, 13)} 
+  to{ top:-200px; opacity:0; background-color: rgb(69, 69, 69) }
 }

@@ -1,11 +1,9 @@
 /*
 UI Colors: 
-ncsu: red
+ncsu: CC0000
 dark: #171d1e
 navy: #6b8d92
 */
-
-
 
 html, body {
   height: 100%;
@@ -34,7 +32,6 @@ a {
   min-width: 300px;
 }
 
-
 .not-found{
   width: 100%;
   min-height: inherit;
@@ -42,23 +39,40 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #171d1e;
+  background-color: #CC0000;
 }
 
+.not-found h1 {
+  font-family: "Univers";
+}
 
-.response {
+.not-found h2 {
+  font-family: "Univers";
+  color: white;
+  font-size: calc(12px + 0.1vw);
   margin: 0;
-  padding: 0;
-  font-size: 14px;
-  font-family: "Questrial";
-  color: red;
-  margin: 7px;
 }
 
-.close-btn {
-  right: 5px;
-  background-image: url();
+.not-found button {
+  background: transparent;
+  font-family: "Univers";
+  font-family: calc(15px + 0.3vw);
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  margin-top: 50px;
 }
+
+.not-found button:hover {
+  background: transparent;
+  font-family: "Univers";
+  background-color: rgb(40, 40, 40);
+}
+
+
+
 
 
 
@@ -75,7 +89,7 @@ body {
 
 
 @media screen and (max-width: 900px) {
-  #page-content { margin-top: 7vh; min-height: 92vh }
+  #page-content { margin-top: 70px; min-height: calc(100vh - 70px)}
 }
 
 @media screen and (min-width: 900px) {
@@ -83,7 +97,7 @@ body {
 }
 
 @media screen and (max-width: 500px){
-  #page-content{min-height: 92vh}
+  #page-content{min-height: calc(100vh - 70px)}
 }
 
 
@@ -188,203 +202,3 @@ hr {
   100% {opacity:0;}
 }
 
-.fade-in-modal {
-  animation: fadeInModal 0.4s;
-  -webkit-animation: fadeInModal 0.4s;
-  -moz-animation: fadeInModal 0.4;
-  -o-animation: fadeInModal 0.4s;
-  -ms-animation: fadeInModal 0.4s;
-}
-@keyframes fadeInModal {
-  0% {opacity:0;}
-  100% {opacity:0.8;}
-}
-
-.fade-out-modal {
-  animation: fadeOutModal 0.4s;
-  -webkit-animation: fadeOutModal 0.4s;
-  -moz-animation: fadeOutModal 0.4;
-  -o-animation: fadeOutModal 0.4s;
-  -ms-animation: fadeOutModal 0.4s;
-}
-@keyframes fadeOutModal {
-  0% {opacity:0.8;}
-  100% {opacity:0;}
-}
-
-.animate-top {
-  position: relative;
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 1s;
-  animation-name: animatetop;
-  animation-duration: 1s
-}
-@-webkit-keyframes animatetop {
-  from { top:-100px; opacity:0 } 
-  to { top:0px; opacity:1 }
-}
-@keyframes animatetop { 
-  from{ top:-100px; opacity:0 } 
-  to{ top:0; opacity:1 }
-}
-
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
-}
-@-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
-
-.animate-right {
-  position: relative;
-  -webkit-animation-name: animateright;
-  -webkit-animation-duration: 1s;
-  animation-name: animateright;
-  animation-duration: 1s
-}
-@-webkit-keyframes animateright {
-  from { right:-100px; opacity:0 } 
-  to { right:0px; opacity:1 }
-}
-@keyframes animateright { 
-  from{ right:-100px; opacity:0 } 
-  to{ right:0; opacity:1 }
-}
-
-.animate-left {
-  position: relative;
-  -webkit-animation-name: animateleft;
-  -webkit-animation-duration: 1s;
-  animation-name: animateleft;
-  animation-duration: 1s
-}
-@-webkit-keyframes animateleft {
-  from { left:-100px; opacity:0 } 
-  to { left:0px; opacity:1 }
-}
-@keyframes animateleft { 
-  from{ left:-100px; opacity:0 } 
-  to{ left:0; opacity:1 }
-}
-
-
-
-
-.freespace {
-  width: 4px;
-}
-.hide-element{
-  display: none;
-}
-.show-element{
-  display: flex;
-}
-.show-blockelement{
-  display: block;
-}
-.nav-btn {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  color: black;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 2px; 
-}
-.nav-btn:hover{
-  color: #A5E1E9;
-  transition: color 0.1s ease-in-out;
-}
-
-
-/* BLUR */
-.blur-effect {
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-}
-
-/*Effects*/
-
-
-.draw-up {
-  animation: drawlineup 1s;
-  -webkit-animation: drawlineup 0.7s;
-  -moz-animation: drawlineup 0.7;
-  -o-animation: drawlineup 0.7s;
-  -ms-animation: drawlineup 0.7s;
-  animation-fill-mode: forwards;
-}
-@keyframes drawlineup {
-  0% {min-height:0%;}
-  100% {min-height:100%;}
-}
-
-.draw-up-modal {
-  animation: drawlineupmodal 1s;
-  -webkit-animation: drawlineupmodal 0.7s;
-  -moz-animation: drawlineupmodal 0.7;
-  -o-animation: drawlineupmodal 0.7s;
-  -ms-animation: drawlineupmodal 0.7s;
-  animation-fill-mode: forwards;
-}
-@keyframes drawlineupmodal {
-  0% {min-height:0%;}
-  100% {min-height:80%;}
-}
-
-.draw-right {
-  animation: drawlineright 1s;
-  -webkit-animation: drawlineright 0.7s;
-  -moz-animation: drawlineright 0.7;
-  -o-animation: drawlineright 0.7s;
-  -ms-animation: drawlineright 0.7s;
-}
-@keyframes drawlineright {
-  0% {width:0%; }
-  100% {width:100%; }
-}
-
-.animate-top {
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-}
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-
-.animate-top-reverse {
-  -webkit-animation-name: animatetopreverse;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetopreverse;
-  animation-duration: 0.4s;
-  animation-fill-mode: forwards;
-}
-@-webkit-keyframes animatetopreverse {
-  from {top:0; opacity:1}
-  to {top:-300px; opacity:0} 
-}
-@keyframes animatetopreverse {
-  from {top:0; opacity:1}
-  to {top:-300px; opacity:0}
-}

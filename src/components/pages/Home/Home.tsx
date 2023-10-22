@@ -90,7 +90,7 @@ const Landing = () => {
   return ( 
     <div id="page-content">
       
-      <div className="home-pg">
+      <div className="home-pg fade-in-quickest">
           
           {currentImage && originals ?
             <>
