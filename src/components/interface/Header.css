@@ -17,6 +17,7 @@
   height: 100%;
   border: 1px;
   padding-left: calc(10px + 1vw);
+  cursor: pointer;
 }
 
 .banner-text h1 {

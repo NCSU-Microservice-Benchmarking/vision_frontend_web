@@ -1,8 +1,9 @@
 import './Footer.css';
+
 import { NavLink } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import ncsu from '../../media/images/ncsu.png';
 
 const Footer = () => {

@@ -6,7 +6,7 @@ import { RootState } from '../../../redux/store';
 import MountDisplay from '../../interface/tools/MountDisplay';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faGear, faImage } from '@fortawesome/free-solid-svg-icons';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 import tasks from '../../../data/tasks';
 import { resetModel, setModel, setTask } from '../../../redux/slices/settings';
@@ -23,6 +23,7 @@ const Landing = () => {
   const { task, model } = useSelector((state: RootState) => state.settings);
 
   const [currentImage, setCurrentImage] = useState<any>();
+
   
   useEffect(() => {
     MountDisplay(undefined, undefined);
@@ -30,11 +31,34 @@ const Landing = () => {
 
   useEffect(() => {
     dispatch(resetModel());
-  }, [task]);
+  }, [task, dispatch]);
 
   useEffect(() => {
+    const testApp = async () => {
+      const formData = new FormData();
+      formData.append('image', currentImage);
+      formData.append('mask', currentImage); 
+      
+      try {
+        const response = await axios({
+          method: 'POST',
+          url: 'http://155.138.202.64:8008/vision/model-pix2pix2',
+          data: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          }
+        });
+        
+        dispatch(setResults(response.data));
+        console.log(typeof response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     if (currentImage) testApp();
-  }, [currentImage]);
+  }, [currentImage, dispatch]);
 
 
   const changeTask = (task: string) => {
@@ -63,28 +87,6 @@ const Landing = () => {
     setCurrentImage(files[0]);
   };
 
-  const testApp = async () => {
-    const formData = new FormData();
-    formData.append('image', currentImage);
-    formData.append('mask', currentImage); 
-    
-    try {
-      const response = await axios({
-        method: 'POST',
-        url: 'http://155.138.202.64:8008/vision/model-pix2pix2',
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        }
-      });
-      
-      dispatch(setResults(response.data));
-      console.log(typeof response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
 
   return ( 
@@ -97,21 +99,23 @@ const Landing = () => {
             <div className="images-display">
               <div>
                 {originals.map((img) => {
-                  if (img !== currentImage)
-                  return (
-                    <img src={img.url} style={{height: 'calc(50px + 2vw'}} />
-                  )
+                  if (img !== currentImage) {
+                    return (
+                      <img src={img.url} style={{height: 'calc(50px + 2vw'}} alt={img.name}/>
+                    )
+                  }
+                  return null;
                 })} 
               </div> 
               <div>
-                <img src={currentImage!.url} height={400} />
+                <img src={currentImage!.url} height={400} alt={currentImage.name}/>
               </div>
             </div>
 
             {results &&
               <div className='results-display'>
                 Results
-                <img src={handleImg.createBlob(results, 'binary', true)} height={400} />
+                <img src={handleImg.createBlob(results, 'binary', true)} height={400} alt="Results"/>
               </div>
             }
             </>

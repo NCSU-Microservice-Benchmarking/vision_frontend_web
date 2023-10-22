@@ -1,27 +1,20 @@
 import './Header.mobile.css';
-import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
 import logo from '../../media/images/logo.png'
 
-import MountDisplay from './tools/MountDisplay';
-
-
-const HeaderMobile = (props: any) => {
+const HeaderMobile = () => {
 
   const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  var navmenu = document.getElementById("nav-menu-mobile");
-  var navbtn = document.querySelector(".nav-dropbtn-mobile");
-  var footer = document.getElementById("footer");
-
-  useEffect(() => {
-    MountDisplay(true, undefined);
-  }, []);
-
+  let navmenu = document.getElementById("nav-menu-mobile");
+  let navbtn = document.querySelector(".nav-dropbtn-mobile");
+  let footer = document.getElementById("footer");
 
   const openMenu = () => {
     var body = document.getElementById("page-content");
@@ -71,7 +64,7 @@ const HeaderMobile = (props: any) => {
       <div className="logo-mobile" 
         onClick={() => {navigate('/'); closeMenu()}}
       >
-        <img src={logo} height={"70%"}/>
+        <img src={logo} height={"70%"} alt="Analyzer Logo"/>
         <div className="banner-text">
         </div>
       </div>
@@ -82,7 +75,7 @@ const HeaderMobile = (props: any) => {
 
       <div id="nav-menu-mobile" className="hide-element slide-in-menu">
 
-        <div id="small-seperator" style={{width: "100%", padding: "0"}}></div>
+        <div id="small-seperator" style={{width: "100%", padding: "0", background: '#CC0000'}}></div>
 
         <div className="menu-options-mobile">
           <ul style={{listStyleType: "none", padding: "0 0 0 2vh", marginTop: '20px', textAlign: "center"}}>

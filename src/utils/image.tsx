@@ -3,7 +3,7 @@ const image = {
     let blob;
     let url;
 
-    if (type == 'binary') {
+    if (type === 'binary') {
         blob = new Blob([data], { type: 'image/png' });
     } else {
         blob = data;
