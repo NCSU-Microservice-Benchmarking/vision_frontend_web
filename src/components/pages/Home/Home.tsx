@@ -46,7 +46,8 @@ const Landing = () => {
           data: formData,
           headers: {
             "Content-Type": "multipart/form-data",
-          }
+          },
+          responseType: 'arraybuffer'
         });
         
         dispatch(setResults(response.data));
