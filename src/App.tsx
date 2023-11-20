@@ -14,7 +14,7 @@ import HeaderMobile from './components/interface/Header.mobile';
 import Footer from './components/interface/Footer';
 
 //Pages
-import Home from './components/pages/Home/Home';
+import Home from './components/pages/Home/Main';
 import Docs from './components/pages/Docs/Docs';
 import About from './components/pages/About/About';
 import PageNotFound from './components/pages/PageNotFound';

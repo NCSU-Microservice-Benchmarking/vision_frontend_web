@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface imagesState {
-  current: null | image, 
+  current: null | number, 
   originals: null | image[]
   edited: null | image[],
   results: any
@@ -19,16 +19,17 @@ export const imagesSlice = createSlice({
   initialState,
   reducers: {
     setCurrent: (state, action) => {
-      state.edited = action.payload;
+      state.current = action.payload;
+      return state;
+    },
+    addToOriginals: (state, action) => {
+      let newCurrent = state.originals;
+      newCurrent?.push(action.payload);
+      state.originals = newCurrent;
       return state;
     },
     setOriginals: (state, action) => {
-      let current = state.originals;
-      if (current) {
-        current.push(action.payload);
-      } else {
-        state.originals = [action.payload];
-      }
+      state.originals = action.payload;
       return state;
     },
     setEdited: (state, action) => {

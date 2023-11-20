@@ -12,8 +12,9 @@ const image = {
     url = URL.createObjectURL(blob);
 
     if (returnUrl) {
-        console.log(url);
-        return url;
+      return url;
+    } else {
+      return blob;
     }
   },
 

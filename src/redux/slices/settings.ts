@@ -8,7 +8,7 @@ interface settingsState {
 
 const initialState: settingsState = {
   task: 'object_detection',
-  model: tasks['object_detection'].models[0]
+  model: tasks['object_detection'].models[0].name
 };
 
 export const settingsSlice = createSlice({
@@ -23,7 +23,7 @@ export const settingsSlice = createSlice({
       return state;
     },
     resetModel: (state) => {
-      state.model = tasks[state.task].models[0];
+      state.model = tasks[state.task].models[0].name;
       return state;
     }
   },

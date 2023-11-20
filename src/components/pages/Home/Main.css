@@ -2,7 +2,7 @@
 
 /*LANDING PAGE */
 
-.home-pg {
+.main-pg {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -14,8 +14,13 @@
   min-height: calc(100% - 70px); /*offset for header*/
 }
 
+.inpainting-input {
+  display: flex;
+  flex-direction: column;
+}
+
 .image-input-container {
-  width: 40vw;
+  min-width: 40vw;
   height: 30vh;
   border: 3px dotted rgb(90, 90, 90);
   background: rgb(248, 247, 247);
@@ -58,18 +63,67 @@
 }
 
 
+
+.results-display {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.originals-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 40vw;
+}
+
+.originals-display-more {
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid gray;
+}
+
+.originals-display-current {
+  margin-bottom: 20px;
+}
+
+
+
+
 .settings-container {
   width: 35vw;
+  border: 1px solid rgb(220, 220, 220);
+  padding: 15px;
 }
 
 .settings-container h2 {
-  margin: 10px 0;
+  margin: 0 0 10px 0;
+  font-family: 'Univers';
+  color: #CC0000
 }
+
+.setting-header {
+  border: 1px solid rgb(230, 230, 230);
+  color: black;
+  padding: 5px 10px;
+  display: flex;
+}
+.setting-header h1 {
+  color: black;
+  font-family: 'Univers';
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: calc(13px + 0.2vw);
+}
+
 
 .task-options, .model-options {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 10px 0;
 }
 
 .task-options h1, .model-options h1 {
@@ -78,7 +132,7 @@
   padding: 10px 20px;
   border: 1px solid rgb(186, 186, 186);
   cursor: pointer;
-  box-shadow: 5px 5px 10px 2px rgb(202, 202, 202);
+  box-shadow: 5px 5px 15px 2px rgb(202, 202, 202);
 }
 
 .task-options h1:hover, .model-options h1:hover {
@@ -147,10 +201,29 @@
 }
 
 
-@media screen and (max-width: 900px) {
-  .home-pg {flex-direction: column;}
-  #page-content{justify-content: flex-start;}
+.main-options {
+  width: 200px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.submit-btn {
+  border: black;
+  padding: 15px;
+  cursor: pointer;
+  font-size: calc(12px + 0.2vw);
+}
+.submit-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .main-pg {flex-direction: column; margin-bottom: 70px;}
   .image-input-container {width: 50%; margin-bottom: 70px}
+  .inpainting-input {flex-direction: row;}
   .image-input-label {width: 50%;}
   .settings-container {width: 80%;}
 }

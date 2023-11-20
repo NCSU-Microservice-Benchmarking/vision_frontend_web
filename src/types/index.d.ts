@@ -22,10 +22,3 @@ interface settings {
   task: "object_detection" | "semantic_segmentation" | "image_inpainting"
 }
 
-interface image {
-  id: string,
-  type: string,
-  name: string,
-  url: string,
-  file?: File
-}

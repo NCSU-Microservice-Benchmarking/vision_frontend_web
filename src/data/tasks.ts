@@ -3,19 +3,42 @@ const tasks = {
         short_name: 'Detection',
         long_name: 'Object Detection',
         description: '',
-        models: ['HOG-Feature', 'YoloV8']
+        models: [
+        {
+            name: 'HOG',
+            url: '/model-hog-people'
+        },
+        {
+            name: 'YoloV8',
+            url: '/model-yolov8'
+        }
+        ]
     },
     semantic_segmentation: {
         short_name: 'Segmentation',
         long_name: 'Semantic Segmentation',
         description: '',
-        models: ['YoloV8', 'Segment Anything', 'UNet']
+        models: [
+        {
+            name: 'Segment Anything',
+            url: '/model-sam'
+        },
+        ]
     },
     image_inpainting: {
         short_name: 'Inpainting',
         long_name: 'Image Inpainting',
         description: '',
-        models: ['LAMA', 'AOTGAN', 'Pix2pix']
+        models: [
+        {
+            name: 'LAMA',
+            url: '/model-lama'
+        },
+        {
+            name: 'Pix2pix',
+            url: '/model-pix2pix'
+        },
+        ]
     }
 }
 
