@@ -14,7 +14,7 @@ import HeaderMobile from './components/interface/Header.mobile';
 import Footer from './components/interface/Footer';
 
 //Pages
-import Home from './components/pages/Home/Main';
+import Home from './components/pages/Main/Main';
 import Docs from './components/pages/Docs/Docs';
 import About from './components/pages/About/About';
 import PageNotFound from './components/pages/PageNotFound';
@@ -22,7 +22,7 @@ import PageNotFound from './components/pages/PageNotFound';
 function App() {
   
   const [dimensions, setDimensions] = useState({width: 0, height: 0});
-  const breakpoint = 900;
+  const breakpoint = 1100;
 
   useEffect(() => {
     AOS.init({
