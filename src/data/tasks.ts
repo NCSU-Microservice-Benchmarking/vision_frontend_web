@@ -1,4 +1,5 @@
 const tasks = {
+
     object_detection: {
         short_name: 'Detection',
         long_name: 'Object Detection',
@@ -14,6 +15,7 @@ const tasks = {
         }
         ]
     },
+
     semantic_segmentation: {
         short_name: 'Segmentation',
         long_name: 'Semantic Segmentation',
@@ -25,6 +27,7 @@ const tasks = {
         },
         ]
     },
+    
     image_inpainting: {
         short_name: 'Inpainting',
         long_name: 'Image Inpainting',

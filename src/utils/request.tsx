@@ -17,7 +17,7 @@ const request = {
     let task = store.getState().settings.task;
 
     //convert back to blob
-    const blob = image.createBlob(originals![current!].base64, 'binary');
+    const blob: Blob = image.createBlob(originals![current!].base64, 'binary');
 
     formData.append('image', blob);
     //formData.append('mask', current); 
@@ -27,17 +27,16 @@ const request = {
     let url: string;
 
     for (let i = 0; i < models.length; i++) {
-      if (models[i].name == model){
+      if (models[i].name === model){
         url = models[i].url;
       }
     }
     
     try {
-      console.log('requesting')
       const response = await axiosClient.post(url!, formData);
       store.dispatch(setResults(response.data));
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   }
 

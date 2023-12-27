@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   position: fixed;
-  z-index: 7;
+  z-index: 100;
   align-items: center;
   top: 0;
   left: 0;

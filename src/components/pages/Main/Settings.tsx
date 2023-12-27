@@ -1,5 +1,5 @@
 import './Settings.css';
-import React , { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { RootState } from '../../../redux/store';
 
@@ -30,14 +30,18 @@ const Settings = () => {
     <div className="settings-container">
 
       <h2>
-        <i className="fa-light fa-gear" style={{marginRight: '10px', color: 'black'}}></i>
+        <i className="fa-solid fa-gear" style={{marginRight: '10px', color: 'black'}}></i>
         {current !== null && originals![current].name}
       </h2>
+
       <div className='seperator' style={{height: '2px', background: 'gray', marginBottom: '20px'}}></div>
 
       <div className='setting'>
         <div className='setting-header'>
-          <h1>Task</h1>
+          <h1>
+            <i className="fa-light fa-list-check" style={{marginRight: '5px'}}></i>
+            Task
+          </h1>
         </div>
         <div className="task-options">
           {Object.values(tasks).map((key: any, index) => {
@@ -50,11 +54,12 @@ const Settings = () => {
         </div>
       </div>
 
-
-
       <div className='setting'>
         <div className='setting-header'>
-            <h1>Model</h1>
+            <h1>
+              <i className="fa-light fa-diagram-subtask" style={{marginRight: '5px'}}></i>
+              Model
+            </h1>
         </div>
         <div className="model-options">
           {task && tasks[task].models.map((taskModel, index) => {
@@ -67,12 +72,12 @@ const Settings = () => {
         </div>
       </div>
 
-
-
-
       <div className='setting'>
-        <div className='setting-header' style={{textAlign: 'right', background: 'whitesmoke'}}>
-          <h1>Settings</h1>
+        <div className='setting-header' style={{textAlign: 'right'}}>
+          <h1>
+            <i className="fa-light fa-sliders" style={{marginRight: '5px', color: 'black'}}></i>
+            Settings
+          </h1>
         </div>
         <div className="slider-options">
           <div className="slidecontainer">

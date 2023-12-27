@@ -1,5 +1,3 @@
-import React from "react";
-
 const ModalOverlay = (props: any) => {
 
   const { opacity, fadeIn, borderRadius, color, loader } = props;

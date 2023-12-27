@@ -1,3 +1,6 @@
-# NCSUMicroservice
+# NCSU Microservice Benchmarking
 
-Client for the NCSUMicroservice web application.
+Client for the NCSU Microservice Benchmarking web application.
+
+## Technology Stack: </br>
+React/Redux </br>

@@ -7,14 +7,18 @@
 .settings-container h2 {
   margin: 0 0 10px 0;
   font-family: 'Univers';
-  color: #CC0000
+  color: #CC0000;
+  font-size: calc(15px + 0.3vw);
 }
 
 .setting-header {
-  border: 1px solid rgb(230, 230, 230);
+  border: 1px solid rgb(220, 220, 220);
   color: black;
-  padding: 5px 10px;
+  padding: calc(5px + 0.3vw) 10px;
   display: flex;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
 }
 .setting-header h1 {
   color: black;
@@ -22,7 +26,7 @@
   margin: 0;
   height: 100%;
   width: 100%;
-  font-size: calc(13px + 0.2vw);
+  font-size: calc(13px + 0.3vw);
 }
 
 
@@ -33,13 +37,19 @@
   margin: 10px 0;
 }
 
+.task-options { 
+  flex-wrap: wrap;
+}
+
 .task-options h1, .model-options h1 {
   font-family: 'Abrade';
+  font-weight: bold;
   font-size: calc(13px + 0.2vw);
   padding: 10px 20px;
   border: 1px solid rgb(186, 186, 186);
   cursor: pointer;
   box-shadow: 5px 5px 15px 2px rgb(202, 202, 202);
+  transition: all 0.1s ease-in-out;
 }
 
 .task-options h1:hover, .model-options h1:hover {

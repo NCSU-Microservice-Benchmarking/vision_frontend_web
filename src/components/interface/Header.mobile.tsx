@@ -14,18 +14,15 @@ const HeaderMobile = () => {
 
   let navmenu = document.getElementById("nav-menu-mobile");
   let navbtn = document.querySelector(".nav-dropbtn-mobile");
-  let footer = document.getElementById("footer");
 
   const openMenu = () => {
-    var body = document.getElementById("page-content");
+    let body = document.getElementById("page-content");
     navbtn!.classList.remove('menu-closed');
     navbtn!.classList.add('menu-open');
     navmenu!.classList.remove("slide-out-menu");
     navmenu!.classList.add("slide-in-menu");
     navmenu!.classList.remove('hide-element');
     navmenu!.classList.add('show-blockelement');
-    body!.classList.add("blur-effect");
-    footer!.classList.add("blur-effect");
     body!.style.pointerEvents = "none";
     document.body.style.overflow = "hidden";
     setIsMenuOpen(true);
@@ -41,8 +38,6 @@ const HeaderMobile = () => {
       navmenu!.classList.remove('show-blockelement');
       navmenu!.classList.add("hide-element");
     }, 200); 
-    body!.classList.remove("blur-effect");
-    footer!.classList.remove("blur-effect");
     body!.style.pointerEvents = "auto";
     document.body.style.overflow = "auto";
     setIsMenuOpen(false);

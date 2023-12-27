@@ -21,13 +21,8 @@ export default function MountDisplay(iconUrl: string | undefined | boolean, page
     if (document.querySelector('.header-bar') !== null) {
       var header: any = document.querySelector('.header-bar');
       var navbar: any = document.querySelector('.navbar');
-      var body = document.getElementById('page-content');
-      var footer = document.getElementById("footer-container");
       if (header) header!.style.display = 'flex';
       if (navbar) navbar!.style.display = 'flex';
-      if (body) body.classList.remove("blur-effect");
-      if (header) header.classList.remove("blur-effect");
-      if (footer) footer.classList.remove("blur-effect");
     }
   }
     

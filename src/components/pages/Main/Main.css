@@ -11,7 +11,7 @@
   margin-top: 50px;
   padding: 0;
   width: 100%;
-  min-height: calc(100% - 70px); /*offset for header*/
+  height: fit-content;
 }
 
 .inpainting-input {
@@ -30,6 +30,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 .image-input-container:hover {
@@ -42,8 +43,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   cursor: pointer;
 }
 
@@ -83,7 +84,7 @@
 .originals-display-more {
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid gray;
+  border: 1px solid rgb(220, 220, 220)
 }
 
 .originals-display-current {
@@ -94,10 +95,25 @@
 
 #current-img {
   height: 50%;
+  max-width: 100%;
   max-height: calc(300px + 5vw);
 }
-
-
+#queued-img {
+  height: calc(50px + 2vw);
+}
+#queued-img-add {
+  height: calc(50px + 2vw);
+  width: calc(50px + 2vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 0.3vw);
+  background: whitesmoke;
+}
+#queued-img-add:hover {
+  background: whitesmoke;
+  cursor: pointer;
+}
 
 
 
@@ -109,20 +125,23 @@
   justify-content: space-between;
 }
 .submit-btn {
-  border: black;
+  border: none;
+  color: white;
   padding: 15px;
+  background: black;
   cursor: pointer;
   font-size: calc(12px + 0.2vw);
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
 }
 .submit-btn:hover {
-  background-color: black;
-  color: white;
+  background-color: #CC0000;
 }
 
 
 @media screen and (max-width: 1100px) {
   .main-pg {flex-direction: column}
-  .image-input-container {width: 50%; margin-bottom: 70px}
+  .image-input-container {width: 70%; margin-bottom: 50px}
   .inpainting-input {flex-direction: row;}
   .image-input-label {width: 50%;}
   .originals-display {margin-bottom: 50px; width: 80%;}
