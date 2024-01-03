@@ -1,9 +1,9 @@
 import './Settings.css';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { RootState } from '../../../redux/store';
 
-import tasks from '../../../data/tasks';
+import models from '../../../data/models';
 import { resetModel, setModel, setTask } from '../../../redux/slices/settings';
 
 const Settings = () => {
@@ -11,7 +11,7 @@ const Settings = () => {
   const dispatch = useDispatch();
 
   const { originals, current } = useSelector((state: RootState) => state.images);
-  const { task, model } = useSelector((state: RootState) => state.settings);
+  const { task } = useSelector((state: RootState) => state.settings);
 
   //reset model variable when task is changed
   useEffect(() => {
@@ -44,11 +44,17 @@ const Settings = () => {
           </h1>
         </div>
         <div className="task-options">
-          {Object.values(tasks).map((key: any, index) => {
+          {Object.values(models).map((key: any, index: number) => {
             return (
-              <h1 key={index} style={{background: Object.keys(tasks)[index] === task ? '#f19696' : 'inherit'}} onClick={() => changeTask(Object.keys(tasks)[index])}>
-                {key.short_name}
-              </h1>
+              <div className='task-options-item' 
+                key={index}
+                style={{background: Object.keys(models)[index] === task ? '#f19696' : 'inherit'}} 
+                onClick={() => changeTask(Object.keys(models)[index])}
+              >
+                <h1>
+                  {key.short_name}
+                </h1>
+              </div>
             )
           })}
         </div>
@@ -62,11 +68,19 @@ const Settings = () => {
             </h1>
         </div>
         <div className="model-options">
-          {task && tasks[task].models.map((taskModel, index) => {
+          {task && models[task].models.map((model: any, index: number) => {
             return (
-              <h1 key={index} style={{background: model === taskModel.name ? '#f19696' : 'inherit'}} onClick={() => changeModel(taskModel.name)}>
-                {taskModel.name}
-              </h1>
+              <div className='model-options-item'
+                key={index} 
+                style={{background: model === model.name ? '#f19696' : 'inherit'}}
+                onClick={() => changeModel(model.name)}
+              >
+                {model.img && <img src={model.img} alt={model.name}/>}
+                <h1>
+                  {model.name}
+                </h1>
+              </div>
+
             )
           })}
         </div>

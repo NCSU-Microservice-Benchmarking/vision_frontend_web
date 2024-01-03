@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import tasks from "../../data/tasks";
+import models from "../../data/models";
 
 interface settingsState {
-  task: settings["task"],
+  task: task,
   model: string
 }
 
 const initialState: settingsState = {
   task: 'object_detection',
-  model: tasks['object_detection'].models[0].name
+  model: models['object_detection'].models[0].name
 };
 
 export const settingsSlice = createSlice({
@@ -23,7 +23,7 @@ export const settingsSlice = createSlice({
       return state;
     },
     resetModel: (state) => {
-      state.model = tasks[state.task].models[0].name;
+      state.model = models[state.task].models[0].name;
       return state;
     }
   },

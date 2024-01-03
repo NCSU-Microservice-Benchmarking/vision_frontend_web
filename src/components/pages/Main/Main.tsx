@@ -1,22 +1,22 @@
 import './Main.css';
-import { useEffect, useState } from 'react';
+import Settings from './Settings';
+
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { RootState } from '../../../redux/store';
+import { setOriginals, setCurrent } from '../../../redux/slices/images';
 
 import MountDisplay from '../../interface/tools/MountDisplay';
 import ModalOverlay from '../../interface/ModalOverlay';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-import { setOriginals, setCurrent } from '../../../redux/slices/images';
 import request from '../../../utils/request';
-
-import handleImg from '../../../utils/image';
-import { createId } from '../../../tools/createID';
-
-import Settings from './Settings';
-
+import imageUtil from '../../../utils/image';
+import { image } from '../../../types/image';
+import { createId } from '../../../tools/createId';
+import { setResponse } from '../../../redux/slices/general';
 
 const Main = () => {
 
@@ -24,6 +24,7 @@ const Main = () => {
 
   const { originals, results, current } = useSelector((state: RootState) => state.images);
   const { task } = useSelector((state: RootState) => state.settings);
+  const { response } = useSelector((state: RootState) => state.general);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   
@@ -37,13 +38,13 @@ const Main = () => {
 
     //get images from file select
     if (files[0]) {
-      const images = [];
+      const images: image[] = [];
       for (let i = 0; i < files.length; i++) {
         let image: image = {
           id: createId(20), 
           name: files[i].name,
           type: files[i].type,
-          url: handleImg.createBlob(files[i], 'file', true)!,
+          url: imageUtil.create.blob(files[i], 'file', true)!,
           base64: btoa(files[i])
         }
         images.push(image);
@@ -67,6 +68,7 @@ const Main = () => {
   const clearRequest = () => {
     dispatch(setOriginals(null));
     dispatch(setCurrent(null));
+    dispatch(setResponse(null));
   }
 
   return ( 
@@ -79,7 +81,7 @@ const Main = () => {
             (results ? 
               <div className='results-display'>
                 <h1> Results </h1>
-                <img src={handleImg.createBlob(results, 'binary', true)} height={400} alt="Results"/>
+                <img src={imageUtil.create.blob(results, 'binary', true)} height={400} alt="Results"/>
               </div>
             :
               <div className="originals-display">
@@ -153,11 +155,20 @@ const Main = () => {
 
       </div>
 
-      <div className='main-options' style={{visibility: originals && !isLoading ? 'visible' : 'hidden'}}>
-        <button className="submit-btn" onClick={submitRequest}>
+
+      {response && 
+        <div className='response'>
+          <h1 style={{color: response.type === 'error' ? 'red' : 'black'}}>
+            {response.code ? response.code + ": " : ""} {response.message}
+          </h1>
+        </div>
+      }
+
+      <div className='main-options' style={{visibility: originals && !isLoading ? 'visible' : 'hidden', marginTop: !response ? '20px' : '0px'}}>
+        <button className="main-options-btn" onClick={submitRequest}>
           Submit
         </button>
-        <button className="submit-btn" onClick={clearRequest}>
+        <button className="main-options-btn" onClick={clearRequest}>
           Clear
         </button>
       </div>
@@ -167,6 +178,3 @@ const Main = () => {
 }
 
 export default Main;
-
-
-

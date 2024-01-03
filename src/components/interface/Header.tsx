@@ -56,19 +56,14 @@ const Header = () => {
 export default Header;
 
 
-
 const Navbar = ()  => {
   return (
     <nav className="navbar">
-
       <div className="menuoptions">
-
         <NavLink className="navlink" to="/">Home</NavLink>
         <NavLink className="navlink" to="/docs">Docs</NavLink>
         <NavLink className="navlink" to="/about">About</NavLink>
-
       </div>
     </nav>
   )
- 
 }

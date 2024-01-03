@@ -1,12 +1,14 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import axiosRetry from 'axios-retry';
+import { store } from "../../redux/store";
+import { setResponse } from "../../redux/slices/general";
 
+//import { serverUrl } from '../../tools/urls';
 
 const createAxiosInstance = (): AxiosInstance => {
-  let url = 'http://eb2-2259-lin04.cscn.csu.edu/vision';
 
   const instance = axios.create({
-    baseURL: url,
+    baseURL: process.env.REACT_APP_SERVER_URL,
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -16,9 +18,15 @@ const createAxiosInstance = (): AxiosInstance => {
 
   // interceptor to handle errors
   instance.interceptors.response.use(
-    (response) => response,
-    (error) => {
+    (response: AxiosResponse) => response,
+    (error: AxiosError) => {
       console.log(error);
+      let response = {
+        type: 'error',
+        code: error.code,
+        message: error.message
+      }
+      store.dispatch(setResponse(response));
       return Promise.reject(error);
     }
   );
@@ -32,7 +40,7 @@ const createAxiosInstance = (): AxiosInstance => {
     },
     retryCondition: (error: any) => {
       // retrying only on 503 HTTP errors
-      return error.response.status === 503;
+      return error.response && error.response.status === 503;
     },
   });
 

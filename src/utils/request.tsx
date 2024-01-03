@@ -2,8 +2,8 @@ import { setResults } from '../redux/slices/images';
 import { store } from '../redux/store';
 
 import { axiosClient } from '../utils/axios/axiosClient';
-import tasks from '../data/tasks';
-import image from './image';
+import models from '../data/models';
+import imageUtil from './image';
 
 const request = {
 
@@ -17,26 +17,26 @@ const request = {
     let task = store.getState().settings.task;
 
     //convert back to blob
-    const blob: Blob = image.createBlob(originals![current!].base64, 'binary');
+    const blob: Blob = imageUtil.create.blob(originals![current!].base64, 'binary');
 
     formData.append('image', blob);
     //formData.append('mask', current); 
 
-    let models = tasks[task].models;
+    let modelsForTask = models[task].models;
 
-    let url: string;
+    let path: string;
 
-    for (let i = 0; i < models.length; i++) {
-      if (models[i].name === model){
-        url = models[i].url;
+    for (let i = 0; i < modelsForTask.length; i++) {
+      if (modelsForTask[i].name === model){
+        path = modelsForTask[i].path;
       }
     }
     
     try {
-      const response = await axiosClient.post(url!, formData);
+      const response = await axiosClient.post(path!, formData);
       store.dispatch(setResults(response.data));
     } catch (error) {
-      console.log(error);
+      return;
     }
   }
 

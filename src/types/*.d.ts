@@ -18,7 +18,4 @@ declare module '*.jpeg' {
   export default src;
 }
 
-interface settings {
-  task: "object_detection" | "semantic_segmentation" | "image_inpainting"
-}
 

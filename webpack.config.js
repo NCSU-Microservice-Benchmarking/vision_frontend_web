@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin  from 'html-webpack-plugin';
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './client/src/index.tsx',
@@ -41,6 +42,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
+    new Dotenv({
+      path: './.env'
+  })
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

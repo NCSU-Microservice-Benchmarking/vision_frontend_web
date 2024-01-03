@@ -1,7 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface generalState {
+  language: string,
+  response: null | {
+    type: string,
+    message: string,
+    code: number
+  }
+}
+
+const initialState: generalState = {
   language: 'en-US',
+  response: null,
 };
 
 export const generalSlice = createSlice({
@@ -12,9 +22,13 @@ export const generalSlice = createSlice({
       state.language = action.payload;
       return state;
     },
+    setResponse: (state, action) => {
+      state.response = action.payload;
+      return state;
+    },
   },
 })
 
-export const { setLanguage  } = generalSlice.actions
+export const { setLanguage, setResponse } = generalSlice.actions
 
 export default generalSlice.reducer;

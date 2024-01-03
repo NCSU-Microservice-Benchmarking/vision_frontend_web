@@ -119,12 +119,12 @@
 
 .main-options {
   width: 200px;
-  margin-top: 50px;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.submit-btn {
+.main-options-btn {
   border: none;
   color: white;
   padding: 15px;
@@ -134,8 +134,18 @@
   transition: all 0.2s ease-in-out;
   border-radius: 5px;
 }
-.submit-btn:hover {
+.main-options-btn:hover {
   background-color: #CC0000;
+}
+
+.response { 
+  padding: 15px 0;
+  margin-top: 10px;
+}
+.response h1 {
+  margin: 0;
+  font-size: calc(10px + 0.3vw);
+  font-weight: 200;
 }
 
 

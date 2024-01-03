@@ -1,9 +1,10 @@
 import './Footer.css';
-
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 import ncsu from '../../media/images/ncsu.png';
 
 const Footer = () => {
@@ -28,7 +29,7 @@ const Footer = () => {
 
       <div className="footer-links" style={{display: window.innerWidth < 900 ? 'none' : 'flex'}}>
         <li><NavLink to="/about">Collaborators</NavLink></li>
-        <li><NavLink to="/">Dr. Ryozhou Yu</NavLink></li>
+        <li><NavLink to="https://www.csc.ncsu.edu/people/ryu5">Dr. Ryozhou Yu</NavLink></li>
       </div>
 
       <div className="footer-icons">
