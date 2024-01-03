@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { image } from "../../types/image";
 
 interface imagesState {
   current: null | number, 

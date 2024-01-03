@@ -11,7 +11,7 @@ const Settings = () => {
   const dispatch = useDispatch();
 
   const { originals, current } = useSelector((state: RootState) => state.images);
-  const { task } = useSelector((state: RootState) => state.settings);
+  const { task, model } = useSelector((state: RootState) => state.settings);
 
   //reset model variable when task is changed
   useEffect(() => {
@@ -44,15 +44,16 @@ const Settings = () => {
           </h1>
         </div>
         <div className="task-options">
-          {Object.values(models).map((key: any, index: number) => {
+          {Object.values(models).map((task_: any, index: number) => {
             return (
               <div className='task-options-item' 
                 key={index}
                 style={{background: Object.keys(models)[index] === task ? '#f19696' : 'inherit'}} 
                 onClick={() => changeTask(Object.keys(models)[index])}
               >
+                <i className={`fa-light ${task_.icon}`} style={{marginRight: '5px'}}/>
                 <h1>
-                  {key.short_name}
+                  {task_.short_name}
                 </h1>
               </div>
             )
@@ -68,16 +69,16 @@ const Settings = () => {
             </h1>
         </div>
         <div className="model-options">
-          {task && models[task].models.map((model: any, index: number) => {
+          {task && models[task].models.map((model_: any, index: number) => {
             return (
               <div className='model-options-item'
                 key={index} 
-                style={{background: model === model.name ? '#f19696' : 'inherit'}}
-                onClick={() => changeModel(model.name)}
+                style={{background: model === model_.name ? '#f19696' : 'inherit'}}
+                onClick={() => changeModel(model_.name)}
               >
-                {model.img && <img src={model.img} alt={model.name}/>}
+                {model_.img && <img className="model-option-item-img" src={model_.img} alt={model_.name} style={{}}/>}
                 <h1>
-                  {model.name}
+                  {model_.name}
                 </h1>
               </div>
 

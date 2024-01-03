@@ -7,13 +7,15 @@ export interface image {
 } 
 
 export interface models {
-  [x: task]: {
+  [task: string]: {
     short_name: string,
     long_name: string,
     description: string,
+    icon?: string,
     models: {
       name: string,
       path: string,
+      img?: string
     }[]
   }
 }

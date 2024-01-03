@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import models from "../../data/models";
+import { task } from "../../types/settings";
 
 interface settingsState {
   task: task,
