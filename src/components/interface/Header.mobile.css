@@ -98,6 +98,7 @@
   text-decoration: none;
   font-family: 'Univers';
   font-size: calc(16px + 0.5vw); 
+  transition: all 0.2s ease-in-out;
 }
 
 .navlink-mobile::before {
@@ -134,13 +135,13 @@
 }
 
 @-webkit-keyframes slideinmenu {
-  from { top:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
-  to { top: 70px; opacity:1; background-color: rgb(13, 13, 13)}
+  from { top:-200px; background-color:  rgb(69, 69, 69) } 
+  to { top: 70px; background-color: rgb(13, 13, 13)}
 }
 
 @keyframes slideinmenu { 
-  from{ top:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
-  to{ top: 70px; opacity:1; background-color: rgb(13, 13, 13) }
+  from{ top:-200px; background-color:  rgb(69, 69, 69) } 
+  to{ top: 70px; background-color: rgb(13, 13, 13) }
 }
 
 .slide-out-menu {
@@ -153,11 +154,11 @@
 }
 
 @-webkit-keyframes slideoutmenu {
-  from { top:70px; opacity:1; background-color: rgb(13, 13, 13) } 
+  from { top:70px; background-color: rgb(13, 13, 13) } 
   to { top:-200px; opacity:0; background-color: rgb(69, 69, 69); }
 }
 
 @keyframes slideoutmenu { 
-  from{ top:70px; opacity:1; background-color: rgb(13, 13, 13)} 
-  to{ top:-200px; opacity:0; background-color: rgb(69, 69, 69) }
+  from{ top:70px; background-color: rgb(13, 13, 13)} 
+  to{ top:-200px; background-color: rgb(69, 69, 69) }
 }

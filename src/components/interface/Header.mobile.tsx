@@ -1,10 +1,10 @@
 import './Header.mobile.css';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
-import logo from '../../media/images/logo.png'
+import logo from '../../media/images/logo.png';
 
 const HeaderMobile = () => {
 
@@ -53,23 +53,24 @@ const HeaderMobile = () => {
 
 
   return (
+    <>
+      <div className="header-bar-mobile">
 
-    <div className="header-bar-mobile">
-
-      <div className="logo-mobile" 
-        onClick={() => {navigate('/'); closeMenu()}}
-      >
-        <img src={logo} height={"70%"} alt="Analyzer Logo"/>
-        <div className="banner-text">
+        <div className="logo-mobile" 
+          onClick={() => {navigate('/'); closeMenu()}}
+        >
+          <img src={logo} height={"70%"} alt="Analyzer Logo"/>
+          <div className="banner-text">
+          </div>
         </div>
+
+        <button className="nav-dropbtn-mobile menu-closed"
+          onClick={showNavigation}
+        ></button>
+
       </div>
 
-      <button className="nav-dropbtn-mobile menu-closed"
-        onClick={showNavigation}
-      ></button>
-
       <div id="nav-menu-mobile" className="hide-element slide-in-menu">
-
         <div id="small-seperator" style={{width: "100%", padding: "0", background: '#CC0000'}}></div>
 
         <div className="menu-options-mobile">
@@ -79,14 +80,8 @@ const HeaderMobile = () => {
             <li><NavLink className="navlink-mobile" onClick={closeMenu} to="/about">About</NavLink></li>
           </ul>
         </div>
-
-        <div className="bottom-panel-mobile">
-
-        </div>
-
       </div>
-
-    </div>
+    </>
   );
 }
  
