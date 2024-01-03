@@ -13,7 +13,6 @@ const createAxiosInstance = (): AxiosInstance => {
       "Content-Type": "multipart/form-data",
     },
     responseType: 'arraybuffer',
-    withCredentials: true,
   });
 
   // interceptor to handle errors
