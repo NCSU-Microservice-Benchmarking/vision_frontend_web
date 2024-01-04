@@ -15,7 +15,7 @@ import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons'
 import request from '../../../utils/request';
 import imageUtil from '../../../utils/image';
 import { image } from '../../../types/image';
-import { createId } from '../../../tools/createId';
+import { createId } from '../../../tools/createID';
 import { setResponse } from '../../../redux/slices/general';
 
 const Main = () => {
