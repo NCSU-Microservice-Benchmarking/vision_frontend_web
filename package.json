@@ -33,8 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "npm run start",
-    "deploy": "git add . && git commit -am update && git push origin main",
-    "install": "concurrently \"npm install --prefix server\" \"npm install --prefix client\" "
+    "deploy": "git add . && git commit -am update && git push origin main"
   },
   "eslintConfig": {
     "extends": [
