@@ -2,7 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin  from 'html-webpack-plugin';
 
 module.exports = {
-  entry: './client/src/index.tsx',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'public/client.bundle.js',
