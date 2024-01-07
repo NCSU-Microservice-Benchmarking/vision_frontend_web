@@ -33,27 +33,38 @@ const Main = () => {
   }, []);
 
   const handleFileSelect = (event: any) => {
-
     const files = event.target.files;
-
-    //get images from file select
+  
     if (files[0]) {
       const images: image[] = [];
       for (let i = 0; i < files.length; i++) {
-        let image: image = {
-          id: createId(20), 
-          name: files[i].name,
-          type: files[i].type,
-          url: imageUtil.create.blob(files[i], 'file', true)!,
-          base64: btoa(files[i])
-        }
-        images.push(image);
+        const reader = new FileReader();
+  
+        reader.onload = (e) => {
+          const base64 = e.target?.result as string;
+          const image: image = {
+            id: createId(20),
+            name: files[i].name,
+            type: files[i].type,
+            url: imageUtil.create.blob(files[i], 'file', true)!,
+            base64: base64,
+          };
+  
+          images.push(image);
+  
+          // If all images are processed, dispatch the results
+          if (images.length === files.length) {
+            dispatch(setOriginals(images));
+            dispatch(setCurrent(0));
+          }
+        };
+  
+        // Read the file as a data URL (Base64)
+        reader.readAsDataURL(files[i]);
       }
-      dispatch(setOriginals(images));
-      dispatch(setCurrent(0));
     }
-   
   };
+  
 
   const submitRequest = async () => {
     try {
