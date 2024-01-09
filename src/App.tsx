@@ -5,7 +5,7 @@ import './media/loaders/macOS.css'
 import './media/loaders/basic.css'
 
 //React Hooks
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 //UI
@@ -23,6 +23,9 @@ function App() {
   
   const [dimensions, setDimensions] = useState({width: 0, height: 0});
   const breakpoint = 1100;
+
+  const [originalFiles, setOriginalFiles] = useState<File[]>([]);
+  const [resultsFiles, setResultsFiles] = useState<ArrayBuffer[]>([]);
 
   useEffect(() => {
     AOS.init({
@@ -49,7 +52,12 @@ function App() {
       }
 
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={
+          <Home 
+            originalFiles={originalFiles} setOriginalFiles={setOriginalFiles}
+            resultsFiles={resultsFiles} setResultsFiles={setResultsFiles}
+          />} 
+        />
         <Route path="/docs" element={<Docs/>} />
         <Route path="/about" element={<About/>} />
         <Route path="*" element={<PageNotFound/>} />

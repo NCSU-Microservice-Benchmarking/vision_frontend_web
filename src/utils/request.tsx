@@ -1,40 +1,25 @@
-import { setResults } from '../redux/slices/images';
 import { store } from '../redux/store';
 
 import { axiosClient } from '../utils/axios/axiosClient';
 import models from '../data/models';
-import imageUtil from './image';
 
-const request = {
+const requestUtil = {
 
-  image: async () => {
+  image: async (files: File[], setResults: React.Dispatch<React.SetStateAction<ArrayBuffer[]>>) => {
 
     const formData = new FormData();
 
-    let originals = store.getState().images.originals;
-    let current = store.getState().images.current;
-    let model = store.getState().settings.model;
-    let task = store.getState().settings.task;
+    const { current } = store.getState().images;
+    const { model, task } = store.getState().settings;
 
-    //convert back to blob
-    const blob: Blob = imageUtil.create.blob(originals![current!].base64, 'binary');
-
-    formData.append('image', blob);
+    formData.append('image', files[current!]);
     //formData.append('mask', current); 
-
-    let modelsForTask = models[task].models;
-
-    let path: string;
-
-    for (let i = 0; i < modelsForTask.length; i++) {
-      if (modelsForTask[i].name === model){
-        path = modelsForTask[i].path;
-      }
-    }
+    
+    let path: string = models[task].models.find((model_) => model_.name === model)?.path!;
     
     try {
-      const response = await axiosClient.post(path!, formData);
-      store.dispatch(setResults(response.data));
+      const response = await axiosClient.post(path, formData);
+      setResults([response.data]);
     } catch (error) {
       return;
     }
@@ -42,4 +27,4 @@ const request = {
 
 }
 
-export default request;
+export default requestUtil;

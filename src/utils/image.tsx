@@ -1,15 +1,14 @@
-const image = {
+const imageUtil = {
 
   create: {
-
     blob: (data: any, type: 'file' | 'binary', returnUrl?: boolean): any => {
 
       let blob: Blob;
   
       if (type === 'binary') {
-          blob = new Blob([data], { type: 'image/png' });
+        blob = new Blob([data], { type: 'image/png' });
       } else {
-          blob = data;
+        blob = data;
       }
   
       if (returnUrl) {
@@ -18,6 +17,7 @@ const image = {
       } else {
         return blob;
       }
+
     },
     
     base64String: (data: string) => {
@@ -30,4 +30,4 @@ const image = {
   
 }
 
-export default image;
+export default imageUtil;
