@@ -79,10 +79,11 @@ const Main = (props: MainProps) => {
   
 
   const submitRequest = async () => {
+    dispatch(setResponse(null));
     if (current !== null) try {
       setIsLoading(true);
       await request.image(originalFiles, setResultsFiles);
-      await sleep(1000);
+      await sleep(300);
       setIsLoading(false);
     } catch {
       setIsLoading(false);
