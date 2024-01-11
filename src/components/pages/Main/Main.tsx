@@ -76,7 +76,6 @@ const Main = (props: MainProps) => {
       }
     }
   };
-  
 
   const submitRequest = async () => {
     dispatch(setResponse(null));
