@@ -22,8 +22,8 @@ const createAxiosInstance = (): AxiosInstance => {
       console.log(error);
       let response = {
         type: 'error',
-        code: error.code,
-        message: error.message
+        code: error.response?.status,
+        message: error.response?.statusText + '.'
       }
       store.dispatch(setResponse(response));
       return Promise.reject(error);

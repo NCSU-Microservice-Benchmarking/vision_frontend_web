@@ -20,8 +20,8 @@
 }
 
 .image-input-container {
-  min-width: 40vw;
-  min-height: 30vh;
+  width: 40vw;
+  height: 30vh;
   border: 3px dotted rgb(90, 90, 90);
   background: rgb(248, 247, 247);
   border-radius: 10px;

@@ -20,6 +20,7 @@ const requestUtil = {
     try {
       const response = await axiosClient.post(path, formData);
       setResults([response.data]);
+      return;
     } catch (error) {
       return;
     }

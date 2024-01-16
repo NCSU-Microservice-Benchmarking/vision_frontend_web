@@ -87,7 +87,7 @@ const Settings = () => {
         </div>
       </div>
 
-      <div className='setting'>
+      {/*<div className='setting'>
         <div className='setting-header' style={{textAlign: 'right'}}>
           <h1>
             <i className="fa-light fa-sliders" style={{marginRight: '5px', color: 'black'}}></i>
@@ -105,7 +105,7 @@ const Settings = () => {
             <input type="range" min="1" max="100" className="slider" id="myRange"/>
           </div>
         </div>
-      </div>
+        </div>*/}
         
     </div>
   ); 
