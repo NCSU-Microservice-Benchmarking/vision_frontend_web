@@ -19,11 +19,10 @@ const createAxiosInstance = (): AxiosInstance => {
   instance.interceptors.response.use(
     (response: AxiosResponse) => response,
     (error: AxiosError) => {
-      console.log(error);
       let response = {
         type: 'error',
-        code: error.response?.status,
-        message: error.response?.statusText + '.'
+        code: error.response?.status ? error.response?.status : 503,
+        message: error.response?.statusText ? (error.response?.statusText + '.') : "Connection Refused." 
       }
       store.dispatch(setResponse(response));
       return Promise.reject(error);

@@ -1,7 +1,7 @@
 const getMessage = (error: any): string => {
   let message: string = '';
   let code = error.response.status;
-  
+
   if (code === 503) {
     message = 'Serivce Unavailable.';
   } else if (code === 500) {
