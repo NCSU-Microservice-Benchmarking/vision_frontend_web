@@ -1,6 +1,12 @@
-# NCSU Microservice Benchmarking
+# Vision Web Client - NCSU Microservice Benchmarking
 
-Client for the NCSU Microservice Benchmarking web application.
+A web interface for the NCSU Microservice Benchmarking computer vision application.
 
 ## Technology Stack: </br>
-React/Redux </br>
+React Typescript + Redux </br>
+
+## Run
+
+```bash
+npm run dev
+```
